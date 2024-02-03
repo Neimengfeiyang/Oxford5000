@@ -2843,7 +2843,7 @@
 
 
             currentQuestion = wordListSon[lastQuestionNum];
-            currentQuestion.Chinese=currentQuestion.Chinese.replace(/(?<=\[).*?(?=\])/,"");
+            currentQuestion.Chinese=currentQuestion.Chinese.replace(/(?<=\[).*?(?=\])/,"").replace(/(?<=\().*?(?=\))/,"");
             lastQuestionNum++;
             if (lastQuestionNum > wordListSon.length - 1) {
                 lastQuestionNum = 0;
