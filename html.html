@@ -56,7 +56,7 @@
             }
 
             #area2 {
-                height: 7rem;
+                height: 40rem;
             }
         }
     </style>
@@ -2843,6 +2843,7 @@
 
 
             currentQuestion = wordListSon[lastQuestionNum];
+            currentQuestion.Chinese=currentQuestion.Chinese.replace(/(?<=\[).*?(?=\])/,"");
             lastQuestionNum++;
             if (lastQuestionNum > wordListSon.length - 1) {
                 lastQuestionNum = 0;
