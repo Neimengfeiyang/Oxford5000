@@ -3332,7 +3332,17 @@
             for (let i = 0; i < localStorage.length; i++) {
                 let key = localStorage.key(i);
                 let value = localStorage.getItem(key);
-                wordList[key].star = parseInt(value);
+                if (parseInt(key)) {//判断是否是题目，如果是题目，是用题号存储的星标
+                    wordList[key].star = parseInt(value);                    
+                }
+                if(key=="startNum"){
+                    txtInput1.value = value;
+                }
+                if(key=="endNum"){
+                    txtInput2.value = value;
+                }
+                
+
             }
             document.getElementById("totalWordCount").innerHTML = "单词总数：" + wordList.length;
         }
@@ -3344,6 +3354,8 @@
                 }
             }
             document.getElementById("chooseCount").innerHTML = "选中单词总数：" + wordListSon.length;
+            localStorage.setItem("startNum", txtInput1.value);
+            localStorage.setItem("endNum", txtInput2.value);
         });
         document.getElementById("btnTest").addEventListener("click", function () {
             select2.options[1].selected = true;
